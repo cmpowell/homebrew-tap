@@ -23,13 +23,23 @@ class Nut < Formula
             "--sysconfdir=#{etc}/#{name}",
             "--datarootdir=#{share}/#{name}",
             "--mandir=#{share}/man",
+            "--with-drvpath=#{prefix}/libexec/#{name}",
+            "--with-statepath=#{var}/run/#{name}",
+            "--with-pidpath=#{var}/run/#{name}",
             "--with-user=nobody",
             "--with-group=wheel"]
     args << "--with-usb" unless ARGV.include? '--no-usb'
-    args << "--with-cgi" unless ARGV.include? '--no-cgi'
+    if not ARGV.include? '--no-cgi'
+      args << "--with-cgi"
+      args << "--with-cgipath=#{prefix}/lib/cgi-bin/#{name}"
+      args << "--with-htmlpath=#{share}/#{name}/www"
+    end
 
     system "./configure", *args
     system "make install"
+
+    (var+"run/#{name}").mkpath
+    File.rename("#{prefix}/libexec/#{name}/upsdrvctl","#{prefix}/sbin/upsdrvctl")
 
     plist_path('upsdrvctl').write upsdrvctl_startup_plist('upsdrvctl')
     plist_path('upsdrvctl').chmod 0644
@@ -63,7 +73,7 @@ EOS
     return s
   end
 
-  plist_options :startup => true, :manual => "upsdrvctl ; upsd ; upsmon"
+  plist_options :startup => true, :manual => "upsdrvctl start ; upsd ; upsmon"
 
   # Override Formula#plist_name
   def plist_name(extra = nil)
