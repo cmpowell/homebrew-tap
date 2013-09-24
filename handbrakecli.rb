@@ -2,7 +2,7 @@ require 'formula'
 
 class Handbrakecli <Formula
    # @@dmgversion = 'svn3606'
-   @@dmgversion = '0.9.8'
+   @@dmgversion = '0.9.9'
    @@osxversion = '6'
    @@arch = 'x86_64'
    @@dmgname = "HandBrake-#{@@dmgversion}-MacOSX.#{@@osxversion}_CLI_#{@@arch}"
