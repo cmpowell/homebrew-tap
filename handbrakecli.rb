@@ -21,7 +21,7 @@ class Handbrakecli <Formula
    skip_clean ['bin']
 
    def install
-      system "hdiutil attach #{@@dmgname}.dmg"
+      system "hdiutil attach #{name}-#{version}.dmg"
       bin.mkdir
       cp "/Volumes/#{@@dmgname}/HandBrakeCLI", (bin+'HandBrakeCLI')
       chmod 0555, (bin+'HandBrakeCLI')
