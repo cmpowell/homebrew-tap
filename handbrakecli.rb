@@ -15,7 +15,7 @@ class Handbrakecli <Formula
    homepage 'http://handbrake.fr/'
    url @@dmgurl, :using => NoUnzipCurlDownloadStrategy
    version "#{/svn/.match(@@dmgversion) ? @@dmgversion.sub(/svn/,'') : @@dmgversion}"
-   sha1 'a1a55cc680f89b9da443689e96b82c1ccf13f6a9'
+   sha1 '8c175265b18bea37a9072ea90406192462600141'
 
    # don't strip binaries
    skip_clean ['bin']
