@@ -8,8 +8,10 @@ class Handbrakecli <Formula
    @@dmgname = "HandBrake-#{@@dmgversion}-MacOSX.#{@@osxversion}_CLI_#{@@arch}"
    if /svn/.match(@@dmgversion)
       @@dmgurl = 'https://build.handbrake.fr/job/Mac/lastSuccessfulBuild/artifact/trunk/packages/'+@@dmgname+'.dmg'
+      @@urlfile = @@dmgname+'.dmg'
    else
       @@dmgurl = 'http://handbrake.fr/rotation.php?file='+@@dmgname+'.dmg'
+      @@urlfile = 'rotation.php'
    end
 
    homepage 'http://handbrake.fr/'
@@ -21,6 +23,7 @@ class Handbrakecli <Formula
    skip_clean ['bin']
 
    def install
+      mv @@urlfile, "#{name}-#{version}.dmg"
       system "hdiutil attach #{name}-#{version}.dmg"
       bin.mkdir
       cp "/Volumes/#{@@dmgname}/HandBrakeCLI", (bin+'HandBrakeCLI')
