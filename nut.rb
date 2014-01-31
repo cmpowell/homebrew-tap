@@ -1,9 +1,9 @@
 require 'formula'
 
 class Nut < Formula
-  url 'http://www.networkupstools.org/source/2.6/nut-2.6.5.tar.gz'
+  url 'http://www.networkupstools.org/source/2.7/nut-2.7.1.tar.gz'
   homepage 'http://www.networkupstools.org/'
-  md5 'e6eac4fa04baff0d0a827d64efe81a7e'
+  md5 '6fcaa0ba0e1a6a4de2fd75d894e32b6ec33868a0'
 
   depends_on 'neon'
   depends_on 'libusb-compat' unless ARGV.include? '--no-usb'
