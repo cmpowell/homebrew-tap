@@ -3,7 +3,7 @@ require 'formula'
 class Nut < Formula
   url 'http://www.networkupstools.org/source/2.7/nut-2.7.1.tar.gz'
   homepage 'http://www.networkupstools.org/'
-  md5 '6fcaa0ba0e1a6a4de2fd75d894e32b6ec33868a0'
+  sha256 '71a6d73ad6d910808126ba7f217ec1142a0c6709c63a22a099e7338960b2c798'
 
   depends_on 'neon'
   depends_on 'libusb-compat' unless ARGV.include? '--no-usb'
