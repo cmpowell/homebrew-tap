@@ -27,7 +27,7 @@ class Nut < Formula
             "--with-statepath=#{var}/run/#{name}",
             "--with-pidpath=#{var}/run/#{name}",
             "--with-user=nobody",
-            "--with-group=wheel",
+            "--with-group=nobody",
             "--with-macosx_ups"]
     args << "--with-usb" unless ARGV.include? '--no-usb'
     if not ARGV.include? '--no-cgi'
@@ -56,6 +56,7 @@ The NUT config files live in #{etc}/#{name}
 
 To run upsdrvctl and upsd at startup:
 
+  sudo chown nobody:nobody #{HOMEBREW_PREFIX}/var/run/#{name}
   sudo cp -fv #{HOMEBREW_PREFIX}/opt/#{name}/#{plist_name('upsdrvctl')}.plist /Library/LaunchDaemons/
   sudo cp -fv #{HOMEBREW_PREFIX}/opt/#{name}/#{plist_name('upsd')}.plist /Library/LaunchDaemons/
   sudo launchctl load /Library/LaunchDaemons/#{plist_name('upsdrvctl')}.plist
@@ -95,7 +96,7 @@ EOS
 	<key>UserName</key>
 	<string>nobody</string>
 	<key>GroupName</key>
-	<string>wheel</string>
+	<string>nobody</string>
 	<key>KeepAlive</key>
 	<true/>
 	<key>Label</key>
@@ -119,7 +120,7 @@ EOS
 	<key>UserName</key>
 	<string>nobody</string>
 	<key>GroupName</key>
-	<string>wheel</string>
+	<string>nobody</string>
 	<key>KeepAlive</key>
 	<true/>
 	<key>Label</key>
@@ -142,7 +143,7 @@ EOS
 	<key>UserName</key>
 	<string>nobody</string>
 	<key>GroupName</key>
-	<string>wheel</string>
+	<string>nobody</string>
 	<key>KeepAlive</key>
 	<true/>
 	<key>Label</key>
