@@ -27,7 +27,8 @@ class Nut < Formula
             "--with-statepath=#{var}/run/#{name}",
             "--with-pidpath=#{var}/run/#{name}",
             "--with-user=nobody",
-            "--with-group=wheel"]
+            "--with-group=wheel",
+            "--with-macosx_ups"]
     args << "--with-usb" unless ARGV.include? '--no-usb'
     if not ARGV.include? '--no-cgi'
       args << "--with-cgi"
