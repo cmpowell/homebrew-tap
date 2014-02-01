@@ -102,7 +102,7 @@ EOS
 	<string>#{plist_name(name)}</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>#{HOMEBREW_PREFIX}/bin/upsdrvctl</string>
+		<string>#{HOMEBREW_PREFIX}/sbin/upsdrvctl</string>
 		<string>start</string>
 	</array>
 </dict>
