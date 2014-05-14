@@ -7,7 +7,6 @@ class Mlbackup < Formula
    version '160'
 
    depends_on "rsync3"
-   depends_on "growlnotify" => :optional
 
    def install
       inreplace "mlbackup" do |s|
