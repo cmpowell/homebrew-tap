@@ -1,6 +1,6 @@
 require 'formula'
 
-class Handbrakecli <Formula
+class Handbrakecli < Formula
    # @@dmgversion = 'svn3606'
    @@dmgversion = '0.9.9'
    @@osxversion = '6'
