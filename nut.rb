@@ -93,19 +93,19 @@ EOS
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UserName</key>
-	<string>nobody</string>
-	<key>GroupName</key>
-	<string>nobody</string>
-	<key>KeepAlive</key>
-	<true/>
-	<key>Label</key>
-	<string>#{plist_name(name)}</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>#{HOMEBREW_PREFIX}/sbin/upsdrvctl</string>
-		<string>start</string>
-	</array>
+    <key>UserName</key>
+    <string>nobody</string>
+    <key>GroupName</key>
+    <string>nobody</string>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>#{plist_name(name)}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>#{HOMEBREW_PREFIX}/sbin/upsdrvctl</string>
+        <string>start</string>
+    </array>
 </dict>
 </plist>
     EOPLIST
@@ -117,18 +117,18 @@ EOS
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UserName</key>
-	<string>nobody</string>
-	<key>GroupName</key>
-	<string>nobody</string>
-	<key>KeepAlive</key>
-	<true/>
-	<key>Label</key>
-	<string>#{plist_name(name)}</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>#{HOMEBREW_PREFIX}/sbin/upsd</string>
-	</array>
+    <key>UserName</key>
+    <string>nobody</string>
+    <key>GroupName</key>
+    <string>nobody</string>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>#{plist_name(name)}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>#{HOMEBREW_PREFIX}/sbin/upsd</string>
+    </array>
 </dict>
 </plist>
     EOPLIST
@@ -140,18 +140,18 @@ EOS
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UserName</key>
-	<string>nobody</string>
-	<key>GroupName</key>
-	<string>nobody</string>
-	<key>KeepAlive</key>
-	<true/>
-	<key>Label</key>
-	<string>#{plist_name(name)}</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>#{HOMEBREW_PREFIX}/sbin/upsmon</string>
-	</array>
+    <key>UserName</key>
+    <string>nobody</string>
+    <key>GroupName</key>
+    <string>nobody</string>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>#{plist_name(name)}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>#{HOMEBREW_PREFIX}/sbin/upsmon</string>
+    </array>
 </dict>
 </plist>
     EOPLIST
