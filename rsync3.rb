@@ -1,10 +1,10 @@
 require 'formula'
 
-$rsync3_version = "3.0.8"
+$rsync3_version = "3.1.0"
 
 class Rsync3Patches < Formula
    url "http://rsync.samba.org/ftp/rsync/rsync-patches-#{$rsync3_version}.tar.gz"
-   md5 '6e5e87d27a2bb2ce7872ca77ff68d7ec'
+   sha1 'ccfd068b10482ff98109d3a15d6834575d8ae856'
    version $rsync3_version
 
    def initialize
@@ -15,7 +15,7 @@ end
 class Rsync3 < Formula
    url "http://rsync.samba.org/ftp/rsync/rsync-#{$rsync3_version}.tar.gz"
    homepage 'http://rsync.samba.org/'
-   md5 '0ee8346ce16bdfe4c88a236e94c752b4'
+   sha1 'eb58ab04bcb6293da76b83f58327c038b23fcba3'
 
    def patches
       {:p1 => [
