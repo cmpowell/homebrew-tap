@@ -6,8 +6,8 @@ class Nut < Formula
   sha256 '71a6d73ad6d910808126ba7f217ec1142a0c6709c63a22a099e7338960b2c798'
 
   depends_on 'neon'
-  depends_on 'libusb-compat' unless ARGV.include? '--no-usb'
-  depends_on 'libgd' unless ARGV.include? '--no-cgi'
+  depends_on 'libusb-compat' if build.with? 'usb'
+  depends_on 'gd' if build.with? 'cgi'
 
   def options
     [
@@ -29,8 +29,8 @@ class Nut < Formula
             "--with-user=nobody",
             "--with-group=nobody",
             "--with-macosx_ups"]
-    args << "--with-usb" unless ARGV.include? '--no-usb'
-    if not ARGV.include? '--no-cgi'
+    args << "--with-usb" if build.with? 'usb'
+    if build.with? 'cgi'
       args << "--with-cgi"
       args << "--with-cgipath=#{prefix}/lib/cgi-bin/#{name}"
       args << "--with-htmlpath=#{share}/#{name}/www"
@@ -68,7 +68,7 @@ To run upsmon at startup:
   sudo launchctl load /Library/LaunchDaemons/#{plist_name('upsmon')}.plist
 EOS
 
-    if not ARGV.include? '--no-cgi'
+    if build.with? 'cgi'
       s << "\nThe CGI executable was installed to #{prefix}/cgi-bin/upsstats.cgi\n"
     end
 
