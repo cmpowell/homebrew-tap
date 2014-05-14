@@ -8,7 +8,7 @@ class Tempmonitor < Formula
    # appropriate name: tempmonitor-<version>.dmg
    version "4.98"
    homepage 'http://www.bresink.com/osx/0TemperatureMonitor/details.html'
-   sha1 'dfc09bb84755292f883cacc948e6b476eac2fb22'
+   sha1 '692c2a649e88d4a23d9997919624bc4310a3a2ff'
 
    # don't strip binaries
    skip_clean ['bin']
