@@ -1,14 +1,14 @@
 require 'formula'
 
-class Tempmonitor <Formula
+class Tempmonitor < Formula
    url 'http://www.bresink.com/osx/0TemperatureMonitor/download.php5/TemperatureMonitor.dmg', \
       :using => NoUnzipCurlDownloadStrategy
    # Note: Download does not really work, you must manually download
    # and copy it to your ~/Library/Caches/Homebrew folder with the
    # appropriate name: tempmonitor-<version>.dmg
-   version "4.94"
+   version "4.98"
    homepage 'http://www.bresink.com/osx/0TemperatureMonitor/details.html'
-   md5 '1fe6729acb37a851bfb60914a5138827'
+   sha1 'dfc09bb84755292f883cacc948e6b476eac2fb22'
 
    # don't strip binaries
    skip_clean ['bin']
