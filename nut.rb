@@ -6,15 +6,8 @@ class Nut < Formula
   sha256 '71a6d73ad6d910808126ba7f217ec1142a0c6709c63a22a099e7338960b2c798'
 
   depends_on 'neon'
-  depends_on 'libusb-compat' if build.with? 'usb'
-  depends_on 'gd' if build.with? 'cgi'
-
-  def options
-    [
-      ['--no-usb', 'Build without USB support.'],
-      ['--no-cgi', 'Build without CGI support.'],
-    ]
-  end
+  depends_on 'libusb-compat' => :optional
+  depends_on 'gd' => :optional
 
   def install
     args = ["--disable-debug",
@@ -22,17 +15,17 @@ class Nut < Formula
             "--prefix=#{prefix}",
             "--sysconfdir=#{etc}/#{name}",
             "--datarootdir=#{share}/#{name}",
-            "--mandir=#{share}/man",
-            "--with-drvpath=#{prefix}/libexec/#{name}",
+            "--mandir=#{man}",
+            "--with-drvpath=#{libexec}/#{name}",
             "--with-statepath=#{var}/run/#{name}",
             "--with-pidpath=#{var}/run/#{name}",
             "--with-user=nobody",
             "--with-group=nobody",
             "--with-macosx_ups"]
-    args << "--with-usb" if build.with? 'usb'
-    if build.with? 'cgi'
+    args << "--with-usb" if build.with? 'libusb-compat'
+    if build.with? 'gd'
       args << "--with-cgi"
-      args << "--with-cgipath=#{prefix}/lib/cgi-bin/#{name}"
+      args << "--with-cgipath=#{lib}/cgi-bin/#{name}"
       args << "--with-htmlpath=#{share}/#{name}/www"
     end
 
@@ -40,7 +33,7 @@ class Nut < Formula
     system "make install"
 
     (var+"run/#{name}").mkpath
-    File.rename("#{prefix}/libexec/#{name}/upsdrvctl","#{prefix}/sbin/upsdrvctl")
+    File.rename("#{libexec}/#{name}/upsdrvctl","#{prefix}/sbin/upsdrvctl")
 
     plist_path('upsdrvctl').write upsdrvctl_startup_plist('upsdrvctl')
     plist_path('upsdrvctl').chmod 0644
@@ -68,7 +61,7 @@ To run upsmon at startup:
   sudo launchctl load /Library/LaunchDaemons/#{plist_name('upsmon')}.plist
 EOS
 
-    if build.with? 'cgi'
+    if build.with? 'gd'
       s << "\nThe CGI executable was installed to #{prefix}/cgi-bin/upsstats.cgi\n"
     end
 
