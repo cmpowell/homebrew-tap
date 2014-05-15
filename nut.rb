@@ -33,7 +33,7 @@ class Nut < Formula
     system "make install"
 
     (var+"run/#{name}").mkpath
-    File.rename("#{libexec}/#{name}/upsdrvctl","#{prefix}/sbin/upsdrvctl")
+    File.rename("#{libexec}/#{name}/upsdrvctl","#{sbin}/upsdrvctl")
 
     plist_path('upsdrvctl').write upsdrvctl_startup_plist('upsdrvctl')
     plist_path('upsdrvctl').chmod 0644
