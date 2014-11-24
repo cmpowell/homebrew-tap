@@ -2,7 +2,7 @@ require 'formula'
 
 class Handbrakecli < Formula
    # @@dmgversion = 'svn3606'
-   @@dmgversion = '0.9.9'
+   @@dmgversion = '0.10.0'
    @@osxversion = '6'
    @@arch = 'x86_64'
    @@dmgname = "HandBrake-#{@@dmgversion}-MacOSX.#{@@osxversion}_CLI_#{@@arch}"
@@ -17,7 +17,7 @@ class Handbrakecli < Formula
    homepage 'http://handbrake.fr/'
    url @@dmgurl, :using => NoUnzipCurlDownloadStrategy
    version "#{/svn/.match(@@dmgversion) ? @@dmgversion.sub(/svn/,'') : @@dmgversion}"
-   sha1 '8c175265b18bea37a9072ea90406192462600141'
+   sha1 'e6b2e0b2b9f1caaa24a64832b8d1a3bb3c3f929b'
 
    # don't strip binaries
    skip_clean ['bin']
